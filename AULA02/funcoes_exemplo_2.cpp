@@ -2,17 +2,17 @@
 
 using namespace std;
 
-int raiz_quadrada(int x);
+int quadrado(int x);
 
 int main()
 {
 	int x;
 	cout << "Digite um numero:\n";
 	cin >> x;
-	cout << "Raiz quadrada de " << x << " é " << raiz_quadrada(x);
+	cout << "Quadrado de " << x << " é " << quadrado(x);
 }
 
-int raiz_quadrada(int x)
+int quadrado(int x)
 {
 	return x * x;	
 }
