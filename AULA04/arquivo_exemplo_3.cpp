@@ -23,16 +23,9 @@ void gravar_arquivo()
 	float valor_3;
 	char valor_4;
 	
-	cout << "Digite o primeiro numero:" << endl;
 	cin >> valor_1;
-	
-	cout << "Digite o segundo numero:" << endl;
 	cin >> valor_2;	
-	
-	cout << "Digite o terceiro numero:" << endl;
 	cin >> valor_3;
-	
-	cout << "Digite o quarto numero:" << endl;
 	cin >> valor_4;	
 	
 	ofstream ofs;

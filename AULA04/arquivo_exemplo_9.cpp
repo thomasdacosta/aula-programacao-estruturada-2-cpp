@@ -13,35 +13,33 @@ struct alunos
 	int idade;
 };
 
-void gravar_arquivo_registros();
+void ler_arquivo_registros();
 
 int main()
 {
-	gravar_arquivo_registros();
+	ler_arquivo_registros();
 }
 
-void gravar_arquivo_registros()
+void ler_arquivo_registros()
 {
 	alunos alu;
-	
-	cout << "Digite o nome do aluno:";
-	gets(alu.nome);
-	
-	cout << "Digite o RA do aluno:";
-	gets(alu.ra);
-	
-	cout << "Digite a idade do aluno:";
-	cin >> alu.idade;
 	
 	fstream fst;
 	fst.open("registros.dat", ios::in | ios::out | ios::app | ios::binary);
 
 	if (!fst.is_open())
 	{
-		cout << "Não foi possivel abrir o arquivo" << endl;
+		cout << "Não foi possivel abrir o arquivo";
 		return;
 	}
 	
-	fst.write((char *)&alu, sizeof(alu));
+	while (fst.read((char *)&alu,sizeof(alu)))
+	{
+		cout << "************************" << endl;
+		cout << "Nome:" << alu.nome << endl;
+		cout << "RA:" << alu.ra << endl;
+		cout << "Idade:" << alu.idade << endl;
+	}
+	
 	fst.close();
 }
