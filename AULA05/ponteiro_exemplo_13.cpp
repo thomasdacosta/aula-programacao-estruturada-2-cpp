@@ -1,60 +1,108 @@
 #include <iostream>
+#include <strings.h>
+#include <conio.h>
+#include <limits>
 
 using namespace std;
 
 struct alunos
 {
-	char *nome;
+	char nome[100];
 	int idade;
 	alunos *proximo;
-} lista_alunos;
+} *lista_alunos;
 
-void inicializar_alunos();
-void incluir_alunos();
+void iniciar_lista();
+void inserir_aluno();
 void listar_alunos();
+void menu();
+void limpar_teclado();
 
 int main()
 {
-	inicializar_alunos();
-	while (true)
+	int opcao = -1;
+	iniciar_lista();
+	while (opcao != 0)
 	{
-		incluir_alunos();	
-		listar_alunos();
+		menu();
+		cin >> opcao;
+		
+		if (opcao == 1)
+			inserir_aluno();
+		else if (opcao == 2)
+			listar_alunos();
 	}
+	delete lista_alunos;
 }
 
-void inicializar_alunos()
+void iniciar_lista()
 {
-	lista_alunos.proximo = NULL;
+	lista_alunos = NULL;
 }
 
-void incluir_alunos()
+void inserir_aluno()
 {
-	alunos alu;
-	cout << "Digite o nome do aluno:";
-	cin >> alu.nome;
+	limpar_teclado();
+	alunos *novo_aluno = new alunos;
 	
-	cout << "Digite a idade do aluno:";
-	cin >> alu.idade;
-	alu.proximo = NULL;
+	cout << "Digite o nome do aluno:" << endl;
+	gets(novo_aluno->nome);
 	
-	while (lista_alunos.proximo)	
+	cout << "Digite a idade do aluno:" << endl;
+	cin >> novo_aluno->idade;
+	
+	novo_aluno->proximo = NULL;
+	
+	if (lista_alunos == NULL)
+		lista_alunos = novo_aluno;
+	else 
 	{
-		if (lista_alunos.proximo == NULL)
-		{
-			lista_alunos.proximo = &alu;
-			break;
-		}
+		alunos *p;
+		p = lista_alunos;
+		
+		while (p->proximo != NULL)
+			p = p->proximo;
+		
+		p->proximo = novo_aluno;
 	}
- 	
 }
 
 void listar_alunos()
 {
 	alunos *p;
-	for (p = lista_alunos.proximo;p->proximo != NULL;p = p->proximo)
+	p = lista_alunos;
+	
+	if (p->proximo == NULL) 
 	{
-		cout << "Nome:" << p->nome << endl;
-		cout << "Idade:" << p->idade << endl;
+		cout << "------------------------------------" << endl;
+		cout << "Nome do Aluno:" << p->nome << endl;
+		cout << "Idade do Aluno:" << p->idade << endl;
+		cout << "------------------------------------" << endl;
 	}
+	else
+	{
+		while (p != NULL)
+		{
+			cout << "------------------------------------" << endl;
+			cout << "Nome do Aluno:" << p->nome << endl;
+			cout << "Idade do Aluno:" << p->idade << endl;
+			cout << "------------------------------------" << endl;
+			p = p->proximo;
+		}
+	}
+	getch();
+}
+
+void menu()
+{
+	system("cls");
+	cout << "1 - INSERIR" << endl;
+	cout << "2 - LISTAR" << endl;
+	cout << "0 - SAIR" << endl;
+}
+
+void limpar_teclado()
+{
+	cin.clear();
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
