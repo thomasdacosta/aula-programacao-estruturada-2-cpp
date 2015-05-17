@@ -8,3 +8,6 @@ Código-fonte do curso de Programação Estruturada II. Desenvolvido no Dev-C++,
 **AULA 04** - Arquivos<br> 
 **AULA 05** - Ponteiros<br> 
 **AULA 06** - Recursividade<br> 
+
+**AULA LAB 01** - Melhores Práticas<br>
+**AULA LAB 02** - Dicas e Truques<br>
