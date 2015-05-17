@@ -12,6 +12,10 @@ int main()
 	ptr = &valor;
 	total = *ptr;
 	
+	cout << "valor:" << &valor << endl;
+	cout << "ptr:" << &ptr << endl;
+	cout << "total:" << &total << endl;
+	
 	cout << *ptr << endl;
 	cout << total << endl;
 }
