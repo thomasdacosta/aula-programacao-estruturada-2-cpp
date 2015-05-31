@@ -11,3 +11,9 @@ Código-fonte do curso de Programação Estruturada II. Desenvolvido no Dev-C++,
 
 **AULA LAB 01** - Melhores Práticas<br>
 **AULA LAB 02** - Dicas e Truques<br>
+
+**CORRECAO_B1_2015_1** - Correção dos exercícios da B1 (2015.1)
+**EXERCICIOS_B2_2015_1** - Exercícios de estudo para B2 (2015.1)
+
+**EXTRAS** - Outros exemplos<br>
+
