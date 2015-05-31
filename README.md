@@ -1,4 +1,4 @@
-**Programação Estruturada II - Anhanguera**
+**Programação Estruturada II - Anhanguera (C++)**
 
 Código-fonte do curso de Programação Estruturada II. Desenvolvido no Dev-C++, utilizando a linguagem de programação C++.
 
